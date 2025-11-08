@@ -89,4 +89,4 @@ Each cache entry minimizes unnecessary external API calls.
 
 🔴 Live Demo: https://frontend-crypto-sandy.vercel.app/
 
-🎥 Loom Walkthrough: [ADD LINK HERE] 👤 Author: Ajith P
+👤 Author: Ajith P
