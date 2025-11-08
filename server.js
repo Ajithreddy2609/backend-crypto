@@ -16,7 +16,7 @@ app.use(cors());
 app.use(monthlyLimit);
 
 // --- 4. Setup Routes with Rate Limiting ---
-app.use('/api', apiRateLimiter, coinRoutes);
+app.use('/api', apiRateLimiter, monthlyLimit, coinRoutes);
 
 // --- 5. Create the HTTP Server ---
 const server = http.createServer(app);
