@@ -38,19 +38,19 @@ This **Node.js/Express** server acts as the secure and intelligent backend for t
 Follow these steps to set up and run the backend server locally.
 
 ### 1. Navigate to the project directory
-```bash
+
 cd /path-to-project/backend
+
 . Install dependencies
 npm install
+
 Create the Environment File (.env)
-
 Create a .env file inside the /backend directory and add your API key:
-
 # .env
 # This key is kept secure on the server and never exposed to the client
 EXTERNAL_CRYPTO_API_KEY="your_api_key_goes_here"
 
-. Run the Server
+Run the Server
 node server.js
 
 🔌 API Endpoints
@@ -60,14 +60,13 @@ GET /api/indicators
 Description: Fetches the main list of crypto indices/indicators.
 
 Logic: Uses a 120-second on-demand caching strategy.
-
 GET /api/indicators/detail/:id
 
 Description: Fetches 30-day historical data for a specific indicator.
-
 Logic: Each detail request has its own on-demand cache.
 
 WebSocket Events
+
 A single WebSocket connection broadcasts simulated live crypto prices every few seconds —
 demonstrating real-time updates to connected clients.
 | Event         | Direction       | Description                                                                     |
@@ -79,9 +78,7 @@ demonstrating real-time updates to connected clients.
 🏛️ Solution Architecture & Request Flow
 
 The system follows a decoupled client-server architecture:
-
 Frontend: Handles UI and presentation only.
-
 Backend: Manages API calls, caching, security, and real-time data streaming.
 
 
@@ -89,19 +86,8 @@ Backend: Manages API calls, caching, security, and real-time data streaming.
 ⚙️ Caching & Rate Limits
 
 Cache TTL: 120 seconds
-
 Rate Limits: 20 requests/minute, 500/month
-
 Each cache entry minimizes unnecessary external API calls.
 
-
-
-⚙️ Caching & Rate Limits
-
-Cache TTL: 120 seconds
-
-Rate Limits: 20 requests/minute, 500/month
-
-Each cache entry minimizes unnecessary external API calls.
 
 
