@@ -16,6 +16,9 @@ app.use(cors());
 
 // --- 4. Setup Routes with Rate Limiting ---
 app.use('/api', apiRateLimiter, coinRoutes);
+app.send('/', (req, res) =>{
+   res.send("Hello world");
+}
 
 // --- 5. Create the HTTP Server ---
 const server = http.createServer(app);
