@@ -5,9 +5,8 @@ This **Node.js/Express** server acts as the secure and intelligent backend for t
 ---
 
 ### 🌐 Live Links
-
-- **Live API Endpoint:** [YOUR_RENDER_DEPLOYMENT_URL_HERE]  
-- **Frontend Repository:** [YOUR_GITHUB_URL_FOR_CRYPTO-FRONTEND_HERE]
+ 
+- **Frontend Repository:** (https://github.com/Ajithreddy2609/frontend-crypto)
 
 ---
 
@@ -46,8 +45,8 @@ npm install
 
 Create the Environment File (.env)
 Create a .env file inside the /backend directory and add your API key:
-# .env
-# This key is kept secure on the server and never exposed to the client
+.env
+This key is kept secure on the server and never exposed to the client
 EXTERNAL_CRYPTO_API_KEY="your_api_key_goes_here"
 
 Run the Server
