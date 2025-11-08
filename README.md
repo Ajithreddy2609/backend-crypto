@@ -37,30 +37,27 @@ This **Node.js/Express** server acts as the secure and intelligent backend for t
 Follow these steps to set up and run the backend server locally.
 
 ### 1. Navigate to the project directory
-
 cd /path-to-project/backend
 
-. Install dependencies
+### 2. Install dependencies
 npm install
 
-Create the Environment File (.env)
+### 3. Create the Environment File (.env)
 Create a .env file inside the /backend directory and add your API key:
 .env
 This key is kept secure on the server and never exposed to the client
 EXTERNAL_CRYPTO_API_KEY="your_api_key_goes_here"
 
-Run the Server
+### 4.Run the Server
 node server.js
 
 🔌 API Endpoints
 REST API
 GET /api/indicators
-
 Description: Fetches the main list of crypto indices/indicators.
-
 Logic: Uses a 120-second on-demand caching strategy.
-GET /api/indicators/detail/:id
 
+GET /api/indicators/detail/:id
 Description: Fetches 30-day historical data for a specific indicator.
 Logic: Each detail request has its own on-demand cache.
 
@@ -68,6 +65,7 @@ WebSocket Events
 
 A single WebSocket connection broadcasts simulated live crypto prices every few seconds —
 demonstrating real-time updates to connected clients.
+
 | Event         | Direction       | Description                                                                     |
 | ------------- | --------------- | ------------------------------------------------------------------------------- |
 | `connection`  | Client → Server | When a client connects, the server registers them for live data.                |
