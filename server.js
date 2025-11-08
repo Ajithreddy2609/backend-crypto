@@ -13,7 +13,7 @@ const monthlyLimit = require('./middleware/monthlyLimit')
 // --- 3. Initialize Express App ---
 const app = express();
 app.use(cors());
-app.use(apiRateLimter());
+app.use(apiRateLimiter());
 app.use(monthlyLimit());  
 
 // --- 4. Setup Routes with Rate Limiting ---
