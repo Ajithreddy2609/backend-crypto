@@ -1,13 +1,10 @@
-🧠 Backend Server: Crypto Indices API & Cache
-
-
+### 🧠 Backend Server: Crypto Indices API & Cache
 This Node.js/Express server acts as the secure and intelligent backend for the Crypto Indices Web App.
 
-🌐 **Live Demo:**
-Live Demo (Backend): https://backend-crypto-seven.vercel.app/
-Frontend Repository: (https://github.com/Ajithreddy2609/frontend-crypto)
----
+###  🌐 Live Links
+Live Backend Demo: https://backend-crypto-seven.vercel.app/
 
+Frontend Repository: https://github.com/Ajithreddy2609/frontend-crypto
 ### ✨ Features
 
 * **Index List:** Browse a full list of key crypto indices.
