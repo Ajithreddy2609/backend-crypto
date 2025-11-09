@@ -1,12 +1,21 @@
-# 🧠 Backend Server: Crypto Indices API & Cache
+🧠 Backend Server: Crypto Indices API & Cache
 
-This **Node.js/Express** server acts as the secure and intelligent backend for the **Crypto Indices Web App**.
 
+
+This Node.js/Express server acts as the secure and intelligent backend for the Crypto Indices Web App.
+
+
+🌐 **Live Demo:**
+Live Demo (Backend): https://backend-crypto-seven.vercel.app/
+Frontend Repository: (https://github.com/Ajithreddy2609/frontend-crypto)
 ---
 
-### 🌐 Live Links
- 
-- **Frontend Repository:** (https://github.com/Ajithreddy2609/frontend-crypto)
+### ✨ Features
+
+* **Index List:** Browse a full list of key crypto indices.
+* **30-Day Detail View:** Click any index to see a 30-day historical chart and data.
+* **Real-Time Updates:** A live-feed component (powered by WebSockets) streams simulated price changes.
+* **Responsive Design:** Fully usable on both desktop and mobile devices.
 
 ---
 
@@ -51,6 +60,24 @@ EXTERNAL_CRYPTO_API_KEY="your_api_key_goes_here"
 ### 4.Run the Server
 node server.js
 
+----
+
+*** 🏛️ Caching & Rate Limit Strategy
+
+This project's core challenge is to respect the strict external API limits (20 req/min, 500 calls/month) while providing a responsive user experience.
+
+Strategy: The server uses an on-demand, in-memory cache (node-cache) with a 120-second (2-minute) Time-to-Live (TTL) for all external API requests.
+
+Flow: When the server receives a request (e.g., GET /api/indicators), it first checks for a valid, non-expired cache entry.
+
+Cache Hit: If data exists, it is served instantly. No external API call is made.
+
+Cache Miss: If no data exists (or it's older than 120 seconds), the server makes one call to the external API. The response is then stored in the cache and sent to the client.
+
+Compliance: This 120-second cache ensures that our server calls the external API at most once every 2 minutes per endpoint. This is an effective rate of 0.5 requests/minute, which is safely far below the 20 req/min limit and protects the 500/month quota.
+
+---
+
 🔌 API Endpoints
 REST API
 GET /api/indicators
@@ -61,7 +88,8 @@ GET /api/indicators/detail/:id
 Description: Fetches 30-day historical data for a specific indicator.
 Logic: Each detail request has its own on-demand cache.
 
-WebSocket Events
+------
+*** WebSocket Events
 
 A single WebSocket connection broadcasts simulated live crypto prices every few seconds —
 demonstrating real-time updates to connected clients.
@@ -71,6 +99,7 @@ demonstrating real-time updates to connected clients.
 | `connection`  | Client → Server | When a client connects, the server registers them for live data.                |
 | `stream-data` | Server → Client | Emitted periodically (e.g., every 5 seconds) with simulated live price updates. |
 
+-----
 
 🏛️ Solution Architecture & Request Flow
 
@@ -78,13 +107,6 @@ The system follows a decoupled client-server architecture:
 Frontend: Handles UI and presentation only.
 Backend: Manages API calls, caching, security, and real-time data streaming.
 
-
-
-⚙️ Caching & Rate Limits
-
-Cache TTL: 120 seconds
-Rate Limits: 20 requests/minute, 500/month
-Each cache entry minimizes unnecessary external API calls.
 
 
 🔴 Live Demo: https://frontend-crypto-sandy.vercel.app/
