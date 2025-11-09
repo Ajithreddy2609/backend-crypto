@@ -14,7 +14,7 @@ Frontend Repository: https://github.com/Ajithreddy2609/frontend-crypto
 
 ---
 
-## 🧩 Primary Responsibilities
+### 🧩 Primary Responsibilities
 
 - **API Key Security:** Hides the external API key from the frontend client.  
 - **Caching & Rate Limiting:** Implements a 120-second on-demand cache to respect strict rate limits.  
